@@ -1,0 +1,21 @@
+{
+    "manifest_version": 2,
+    "name": "golinks",
+    "version": "0.1",
+    "description": "Hello, world!",
+    "background": {
+        "persistent": true,
+        "scripts": [
+            "index.js"
+        ]
+    },
+    "options_ui": {
+        "page": "options.html"
+    },
+    "permissions": [
+        "<all_urls>",
+        "storage",
+        "webRequest",
+        "webRequestBlocking"
+    ]
+}
