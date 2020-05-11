@@ -1,14 +1,12 @@
-function redirectGoLink(link) {
-    let golink = link.url.replace(/(.*)\:\/\/go\//, "");
-    
+async function redirectGoLink(details) {
+    const golink = details.url.replace(/(.*)\:\/\/go\//, "");
     console.log("golink: ", golink);
     
-    const urlObj = JSON.parse(localStorage.getItem(golink));
-    if (!urlObj) {
+    let urlObj = await browser.storage.local.get(golink)
+    if (!urlObj[golink]) {
         return;
     }
-    
-    return { "redirectUrl": urlObj.url };
+    return {redirectUrl: urlObj[golink].url};
 }
 
 browser.webRequest.onBeforeRequest.addListener(

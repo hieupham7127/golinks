@@ -3,27 +3,32 @@ const urlInput = document.getElementById("full-link")
 const storedUrl = document.getElementById("stored-url")
 const saveButton = document.getElementById("save")
 
-golinkInput.oninput = () => {
-    const urlObj = JSON.parse(localStorage.getItem(golinkInput.value))
-    if (!urlObj) {
+golinkInput.oninput = async () => {
+    const golink = golinkInput.value
+    let urlObj = await browser.storage.local.get(golink)
+    if (!urlObj[golink]) {
         saveButton.textContent = "Save";
         storedUrl.textContent = "";
-    } else {
-        saveButton.textContent = "Overwrite";
-        storedUrl.textContent = urlObj.url;
+        return;
     }
+    saveButton.textContent = "Overwrite";
+    storedUrl.textContent = urlObj[golink].url;
 };
 
 saveButton.onclick = () => {
-    const urlObj = {
+    const golink = golinkInput.value
+    let urlObj = {}
+    urlObj[golink] = {
         "url": urlInput.value,
         "rules": "Nothing for now"
     };
     try {
-        localStorage.setItem(golinkInput.value, JSON.stringify(urlObj));
-        saveButton.textContent = "Overwrite";
-        alert("Success!")
+        browser.storage.local.set(urlObj)
+            .then(() => {
+                alert("Success!");
+                golinkInput.oninput()
+            });
     } catch (e) {
-        alert("Failed! Something went wrong!")
+        alert("Failed! Error: " + e.toString());
     }
 };
