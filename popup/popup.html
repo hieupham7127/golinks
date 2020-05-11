@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <title>Go Links</title>
+        <script type="module" src="../dist/browser-polyfill.js"></script>
+        <script type="module" src="popup.js"></script>
+    </head>
+    <body style="margin-bottom: 0; padding: 0; text-align: center;">
+        <h1>Go Links</h1>
+        <div style="margin: 15px; width: 250px; text-align: left;">
+            <label style="width: 25%; display: inline-block;">Golink: </label>
+            <input id="go-link" style="width: 65%;"></input>
+        </div>
+        <div style="margin: 15px 15px 0 15px; width: 250px; text-align: left;">
+            <label style="width: 25%; display: inline-block;">URL: </label>
+            <input id="full-link" style="width: 65%;"></input>
+        </div>
+        <div style="margin-right: 30px; text-align: right;">
+            <label id="stored-url" style="color: #f44336;"></label>
+        </div>
+        <button id="save" style="margin: 15px;">Save</button>
+    </body>
+</html>
