@@ -1,13 +1,21 @@
-async function redirectGoLink(details) {
+let local_storage_cache = getLocalStorageData();
+
+async function getLocalStorageData() {
+    await browser.storage.local.get(null)
+        .then(urlObjs => {
+            local_storage_cache = urlObjs;
+        });
+}
+
+function redirectGoLink(details) {
     const golink = details.url.replace(/(.*)\:\/\/go\//, "");
-    console.log("golink: ", golink);
-    
-    let urlObj = await browser.storage.local.get(golink)
-    if (!urlObj[golink]) {
+    if (!local_storage_cache[golink]) {
         return;
     }
-    return {redirectUrl: urlObj[golink].url};
+    return {redirectUrl: local_storage_cache[golink].url}
 }
+
+browser.storage.onChanged.addListener(() => getLocalStorageData());
 
 browser.webRequest.onBeforeRequest.addListener(
     redirectGoLink,
