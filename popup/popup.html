@@ -3,8 +3,21 @@
     <head>
         <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
         <meta content="utf-8" http-equiv="encoding">
+
         <title>Go Links</title>
+
         <link rel="stylesheet" href="../dist/bootstrap.min.css">
+        <style type="text/css">
+            .button-outline {
+                border: solid 1px #3bad74;
+                color: #6eb38a;
+            }
+            .button-outline:hover {
+                background-color: #3bad74;
+                color: white;
+            }
+        </style>
+
         <script src="../dist/jquery.js"></script>
         <script src="../dist/bootstrap.min.js"></script> 
         <script type="module" src="../dist/browser-polyfill.js"></script>
@@ -27,10 +40,12 @@
             <input class="form-control" id="full-link" placeholder="https://www.shortcut.com/"></input>                
         </div>
 
-        <div class="d-none" style="margin-right: 10px; text-align: right;">
-            <label id="stored-url" style="max-width: 250px; color: #52a35f; overflow:hidden; text-overflow: ellipsis;"></label>
+        <div style="margin-right: 10px; text-align: right;">
+            <label id="stored-url"
+                style="max-width: 250px; color: red; overflow:hidden; text-overflow: ellipsis; white-space: nowrap; display: none">
+            </label>
         </div>
 
-        <button type="button" class="btn btn-outline-secondary" style="width: 100px;" id="save">Save</button>
+        <button type="button" class="btn btn-sm button-outline" style="width: 100px;" id="save">Save</button>
     </body>
 </html>
