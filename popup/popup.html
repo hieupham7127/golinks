@@ -3,23 +3,49 @@
     <head>
         <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
         <meta content="utf-8" http-equiv="encoding">
+
         <title>Go Links</title>
+
+        <link rel="stylesheet" href="../dist/bootstrap.min.css">
+        <style type="text/css">
+            .button-outline {
+                border: solid 1px #3bad74;
+                color: #6eb38a;
+            }
+            .button-outline:hover {
+                background-color: #3bad74;
+                color: white;
+            }
+        </style>
+
+        <script src="../dist/jquery.js"></script>
+        <script src="../dist/bootstrap.min.js"></script> 
         <script type="module" src="../dist/browser-polyfill.js"></script>
         <script type="module" src="popup.js"></script>
     </head>
-    <body style="margin-bottom: 0; padding: 0; text-align: center;">
-        <h1>Go Links</h1>
-        <div style="margin: 15px; width: 250px; text-align: left;">
-            <label style="width: 25%; display: inline-block;">Golink: </label>
-            <input id="go-link" style="width: 65%;"></input>
+    <body style="padding: 15px; text-align: center;">
+        <div>
+            <img src="../icons/32.png">
+            <span style="font-size: 1em; font-weight: bold;">GoLinks</span>
         </div>
-        <div style="margin: 15px 15px 0 15px; width: 250px; text-align: left;">
-            <label style="width: 25%; display: inline-block;">URL: </label>
-            <input id="full-link" style="width: 65%;"></input>
+        <hr/>
+        <div class="input-group" style="margin: 15px; width: 300px; text-align: left;">
+            <div class="input-group-prepend">
+                <span class="input-group-text">go/</span>
+            </div>
+            <input class="form-control" id="go-link" placeholder="shortcut"></input>
         </div>
-        <div style="margin-right: 30px; text-align: right;">
-            <label id="stored-url" style="color: #f44336;"></label>
+        
+        <div style="margin: 15px; width: 300px; text-align: left;"> 
+            <input class="form-control" id="full-link" placeholder="https://www.shortcut.com/"></input>                
         </div>
-        <button id="save" style="margin: 15px;">Save</button>
+
+        <div style="margin-right: 10px; text-align: right;">
+            <label id="stored-url"
+                style="max-width: 250px; color: red; overflow:hidden; text-overflow: ellipsis; white-space: nowrap; display: none">
+            </label>
+        </div>
+
+        <button type="button" class="btn btn-sm button-outline" style="width: 100px;" id="save">Save</button>
     </body>
 </html>

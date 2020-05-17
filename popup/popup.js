@@ -8,11 +8,13 @@ golinkInput.oninput = async () => {
     let urlObj = await browser.storage.local.get(golink)
     if (!urlObj[golink]) {
         saveButton.textContent = "Save";
-        storedUrl.textContent = "";
+        storedUrl.style.display = "none";
         return;
     }
     saveButton.textContent = "Overwrite";
     storedUrl.textContent = urlObj[golink].url;
+    storedUrl.title = urlObj[golink].url;
+    storedUrl.style.display = "";
 };
 
 saveButton.onclick = () => {
@@ -32,3 +34,6 @@ saveButton.onclick = () => {
         alert("Failed! Error: " + e.toString());
     }
 };
+
+browser.tabs.query({'active': true, 'lastFocusedWindow': true, 'currentWindow': true})
+    .then(tabs => urlInput.value = tabs[0].url);
