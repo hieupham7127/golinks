@@ -1,9 +1,9 @@
 {
     "manifest_version": 2,
     "name": "Go Links",
-    "version": "0.1",
+    "version": "0.0.1",
     
-    "description": "Fast-accessing your websites with a personal URL shortener",
+    "description": "Fast accessing your websites with a personal URL shortener",
 
     "background": {
         "page": "linkify.html",
