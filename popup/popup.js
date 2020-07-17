@@ -2,6 +2,7 @@ const golinkInput = document.getElementById("go-link")
 const urlInput = document.getElementById("full-link")
 const storedUrl = document.getElementById("stored-url")
 const saveButton = document.getElementById("save")
+const searchQuery = document.getElementById("search")
 
 golinkInput.oninput = async () => {
     const golink = golinkInput.value
@@ -37,3 +38,28 @@ saveButton.onclick = () => {
 
 browser.tabs.query({'active': true, 'lastFocusedWindow': true, 'currentWindow': true})
     .then(tabs => urlInput.value = tabs[0].url);
+
+searchQuery.onkeyup = () => {
+    try {
+        browser.storage.local.get(null)
+        .then(items => {
+            let keys = Object.keys(items);
+            const entries = Object.entries(items);
+            let allItems = {};
+            entries.forEach(entry => {
+                allItems[entry[0]] = entry[1].url;
+            });
+            $("#search").autocomplete({
+                source: keys,
+            })
+            .autocomplete("instance")._renderItem = function (ul, item) {
+                return $("<li></li>")
+                    .data("item.autocomplete", item)
+                    .append("<div>" + "go/" + item.value + "<br>" + allItems[item.value] + "</div>")
+                    .appendTo( ul );
+            };
+        })
+    } catch (e) {
+        alert("Failed! Error: " + e.toString());
+    }
+}

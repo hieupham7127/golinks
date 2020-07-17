@@ -6,46 +6,56 @@
 
         <title>Go Links</title>
 
+        <link href="/../dist/all.min.css" rel="stylesheet">
         <link rel="stylesheet" href="../dist/bootstrap.min.css">
-        <style type="text/css">
-            .button-outline {
-                border: solid 1px #3bad74;
-                color: #6eb38a;
-            }
-            .button-outline:hover {
-                background-color: #3bad74;
-                color: white;
-            }
-        </style>
+        <link rel="stylesheet" href="../dist/jquery-ui.min.css">
+        <link rel="stylesheet" href="popup.css"></link>
 
+        <script defer src="/../dist/all.min.js"></script>
         <script src="../dist/jquery.js"></script>
+        <script src="../dist/jquery-ui.min.js"></script>
         <script src="../dist/bootstrap.min.js"></script> 
         <script type="module" src="../dist/browser-polyfill.js"></script>
         <script type="module" src="popup.js"></script>
     </head>
-    <body style="padding: 15px; text-align: center;">
-        <div>
+    <body style="text-align: center;">
+        <div style="padding: 15px; padding-bottom: 0;">
             <img src="../icons/32.png">
             <span style="font-size: 1em; font-weight: bold;">GoLinks</span>
+            <button class="setting-btn fas fa-cog"></button>
         </div>
+
         <hr/>
-        <div class="input-group" style="margin: 15px; width: 300px; text-align: left;">
+
+        <div class="form-inline d-flex justify-content-center" style="margin: 15px 20px; width: 300px; text-align: left;">
+            <i class="fas fa-search" style="color: #3bad74" aria-hidden="true"></i>
+            <input id="search" type="text" autocomplete="off" class="form-control search-box ml-3" style="width: 85%; padding-left: 0" placeholder="Search"></input>
+        </div>
+
+        <hr style="margin: 0 20px"/>
+
+        <div class="input-group" style="margin: 25px 20px; width: 300px; text-align: left;">
             <div class="input-group-prepend">
                 <span class="input-group-text">go/</span>
             </div>
             <input class="form-control" id="go-link" placeholder="shortcut"></input>
         </div>
         
-        <div style="margin: 15px; width: 300px; text-align: left;"> 
+        <div style="margin: 15px 20px; width: 300px; text-align: left;"> 
             <input class="form-control" id="full-link" placeholder="https://www.shortcut.com/"></input>                
         </div>
 
-        <div style="margin-right: 10px; text-align: right;">
+        <div style="margin-right: 20px; text-align: right;">
             <label id="stored-url"
                 style="max-width: 250px; color: red; overflow:hidden; text-overflow: ellipsis; white-space: nowrap; display: none">
             </label>
         </div>
 
         <button type="button" class="btn btn-sm button-outline" style="width: 100px;" id="save">Save</button>
+        <hr/>
+        <div style="font-size: 0.8em;">
+            <p style="color: grey; display: inline-block">Sync between device? </p>
+            <span><a href="">Log in</a></span>
+        </div>
     </body>
 </html>

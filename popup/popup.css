@@ -1,0 +1,47 @@
+/* Save button */
+.button-outline {
+    border: solid 1px #3bad74;
+    color: #6eb38a;
+}
+.button-outline:hover {
+    background-color: #3bad74;
+    color: white;
+}
+/* Setting button */
+.setting-btn {
+    margin-top: 5px;
+    font-size: 20px;
+    vertical-align: bottom;
+    float:right;
+    color: lightgray;
+    cursor: pointer;
+}
+.setting-btn:hover {
+    color: grey;
+}
+/* Input field without highlight*/
+.form-control:focus {
+    box-shadow: none;
+    outline: 0px !important;
+    border: solid 1px #3bad74;
+}
+/* Search bar */
+.search-box {
+    border: none;
+    border-bottom: solid 1px lightgrey;
+    border-radius: 0;
+}
+.search-box:focus {
+    border: none !important;
+    border-bottom: solid 1px #3bad74 !important;
+}
+/* Search autocomplete */
+.ui-menu {
+    text-align: left;
+}
+
+.ui-menu-item .ui-menu-item-wrapper.ui-state-active {
+    background: #3bad74e1 !important;
+    color: #ffffff !important;
+    border: #3bad74e1;
+}
