@@ -6,7 +6,7 @@ const searchQuery = document.getElementById("search")
 
 golinkInput.oninput = async () => {
     const golink = golinkInput.value
-    let urlObj = await browser.storage.local.get(golink)
+    let urlObj = await browser.storage.sync.get(golink)
     if (!urlObj[golink]) {
         saveButton.textContent = "Save";
         storedUrl.style.display = "none";
@@ -26,7 +26,7 @@ saveButton.onclick = () => {
         "rules": "Nothing for now"
     };
     try {
-        browser.storage.local.set(urlObj)
+        browser.storage.sync.set(urlObj)
             .then(() => {
                 alert("Success!");
                 golinkInput.oninput()
@@ -41,7 +41,7 @@ browser.tabs.query({'active': true, 'lastFocusedWindow': true, 'currentWindow': 
 
 searchQuery.onkeyup = () => {
     try {
-        browser.storage.local.get(null)
+        browser.storage.sync.get(null)
         .then(items => {
             let keys = Object.keys(items);
             const entries = Object.entries(items);
@@ -55,7 +55,7 @@ searchQuery.onkeyup = () => {
             .autocomplete("instance")._renderItem = function (ul, item) {
                 return $("<li></li>")
                     .data("item.autocomplete", item)
-                    .append("<div>" + "go/" + item.value + "<br>" + allItems[item.value] + "</div>")
+                    .append("<div>" + item.value + "<br>" + allItems[item.value] + "</div>")
                     .appendTo( ul );
             };
         })

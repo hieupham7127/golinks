@@ -1,7 +1,7 @@
 let local_storage_cache = getLocalStorageData();
 
 async function getLocalStorageData() {
-    await browser.storage.local.get(null)
+    await browser.storage.sync.get(null)
         .then(urlObjs => {
             local_storage_cache = urlObjs;
         });
