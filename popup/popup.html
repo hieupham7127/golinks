@@ -32,6 +32,19 @@
             <input id="search" type="text" autocomplete="off" class="form-control search-box ml-3" style="width: 85%; padding-left: 0" placeholder="Search"></input>
         </div>
 
+        <!-- Autocomplete box template -->
+        <template id="autocomplete">
+            <li style="display: flex">
+                <div class="icon-wrapper">
+                    <img id="icon">
+                </div>
+                <div style="width: 100%">
+                    <p style="margin: 0;" id="shortcut"></p>
+                    <p style="margin: 0; overflow: hidden; max-width: 200px; text-overflow: ellipsis; white-space: nowrap;" id="url"></p>
+                </div>
+            </li>
+        </template>
+        
         <hr style="margin: 0 20px"/>
 
         <div class="input-group" style="margin: 25px 20px; width: 300px; text-align: left;">
@@ -51,6 +64,6 @@
             </label>
         </div>
 
-        <button type="button" class="btn btn-sm button-outline" style="width: 100px;" id="save">Save</button>
+        <button type="button" class="btn btn-sm button-outline" style="width: 100px; margin-bottom: 15px;" id="save">Save</button>
     </body>
 </html>

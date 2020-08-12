@@ -38,10 +38,36 @@
 /* Search autocomplete */
 .ui-menu {
     text-align: left;
+    width: 200px;
 }
 
 .ui-menu-item .ui-menu-item-wrapper.ui-state-active {
-    background: #3bad74e1 !important;
-    color: #ffffff !important;
-    border: #3bad74e1;
+    background: #d8eee3d7 !important;
+    color: #000000 !important;
+    border: #d8eee3d7;
+}
+
+.ui-autocomplete {
+    max-height: 200px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+}
+
+#icon {
+    display: block;
+    height: 32px;
+    width: 32px;
+    margin-top: 7px;
+}
+
+.icon-wrapper {
+    display: block;
+    padding-right: 0;
+    width: 45px;
+}
+
+#url {
+    color: grey;
+    font-size: small;
 }

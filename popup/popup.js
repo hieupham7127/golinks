@@ -40,6 +40,8 @@ browser.tabs.query({'active': true, 'lastFocusedWindow': true, 'currentWindow': 
     .then(tabs => urlInput.value = tabs[0].url);
 
 searchQuery.onkeyup = () => {
+    const template = document.getElementById("autocomplete");
+    const baseURL = "https://www.google.com/s2/favicons?sz=64&domain_url=";
     try {
         browser.storage.sync.get(null)
         .then(items => {
@@ -53,9 +55,12 @@ searchQuery.onkeyup = () => {
                 source: keys,
             })
             .autocomplete("instance")._renderItem = function (ul, item) {
-                return $("<li></li>")
-                    .data("item.autocomplete", item)
-                    .append("<div>" + item.value + "<br>" + allItems[item.value] + "</div>")
+                let searchEntry = template.content.cloneNode(true);
+                const url = allItems[item.value]
+                searchEntry.querySelector("#shortcut").textContent = item.value;
+                searchEntry.querySelector("#url").textContent = url;
+                searchEntry.querySelector("#icon").src = baseURL + url;
+                return $(searchEntry)
                     .appendTo( ul );
             };
         })
