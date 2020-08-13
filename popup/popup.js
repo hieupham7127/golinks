@@ -56,10 +56,13 @@ searchQuery.onkeyup = () => {
             })
             .autocomplete("instance")._renderItem = function (ul, item) {
                 let searchEntry = template.content.cloneNode(true);
-                const url = allItems[item.value]
+                const url = allItems[item.value];
                 searchEntry.querySelector("#shortcut").textContent = item.value;
                 searchEntry.querySelector("#url").textContent = url;
                 searchEntry.querySelector("#icon").src = baseURL + url;
+                searchEntry.querySelector("li").addEventListener("click", function() {
+                    browser.tabs.create({active: true, url: url});
+                });
                 return $(searchEntry)
                     .appendTo( ul );
             };
