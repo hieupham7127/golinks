@@ -19,51 +19,75 @@
         <script type="module" src="popup.js"></script>
     </head>
     <body style="text-align: center;">
-        <div style="padding: 15px; padding-bottom: 0;">
-            <img src="../icons/32.png">
-            <span style="font-size: 1em; font-weight: bold;">GoLinks</span>
-            <button class="setting-btn fas fa-cog"></button>
+        <div  style="padding: 15px; padding-bottom: 0;">
+            <img width="25" height="25" src="../icons/32.png">
+            <span style="font-size: 1em; font-weight: bold;">Go Links</span>
+            <button id="option-btn" class="setting-btn">
+                <i class="far fa-question-circle"></i>
+            </button>
+            <button id="home-btn" class="setting-btn">
+                <i class="fas fa-home"></i>
+            </button>
         </div>
 
         <hr/>
 
-        <div class="form-inline d-flex justify-content-center" style="margin: 15px 20px; width: 300px; text-align: left;">
-            <i class="fas fa-search" style="color: #3bad74" aria-hidden="true"></i>
-            <input id="search" type="text" autocomplete="off" class="form-control search-box ml-3" style="width: 85%; padding-left: 0" placeholder="Search"></input>
-        </div>
-
-        <!-- Autocomplete box template -->
-        <template id="autocomplete">
-            <li style="display: flex">
-                <div class="icon-wrapper">
-                    <img id="icon">
-                </div>
-                <div style="width: 100%">
-                    <p style="margin: 0;" id="shortcut"></p>
-                    <p style="margin: 0; overflow: hidden; max-width: 200px; text-overflow: ellipsis; white-space: nowrap;" id="url"></p>
-                </div>
-            </li>
-        </template>
-        
-        <hr style="margin: 0 20px"/>
-
-        <div class="input-group" style="margin: 25px 20px; width: 300px; text-align: left;">
-            <div class="input-group-prepend">
-                <span class="input-group-text">go/</span>
+        <div id="main">
+    
+            <div class="form-inline d-flex justify-content-center" style="margin: 15px 20px; width: 300px; text-align: left;">
+                <i class="fas fa-search" style="color: #3bad74" aria-hidden="true"></i>
+                <input id="search" type="text" autocomplete="off" class="form-control search-box ml-3" style="width: 85%; padding-left: 0" placeholder="Search"></input>
             </div>
-            <input class="form-control" id="go-link" placeholder="shortcut"></input>
+
+            <!-- <li id="add" class="list-group-item list-group-item-action" style="display: flex">
+                <div class="icon-wrapper">
+                    <i class="fas fa-plus-circle plus-icon"></i>
+                </div>
+                <div align="left" style=" margin-left: 5px; width: 100%">
+                    <p style="margin-top: 14px">Add new shortcut</p>
+                </div>
+            </li> -->
+
+            <ul id="item-list" class="list-group">
+                
+            </ul>
+            
+            <hr>
+            
+            <!-- Autocomplete box template -->
+            <template id="autocomplete">
+                <li class="list-group-item list-group-item-action" style="display: flex">
+                    <div class="icon-wrapper">
+                        <img id="icon">
+                    </div>
+                    <div align="left" style=" margin-left: 5px; width: 80%">
+                        <p style="margin: 0;" id="shortcut"></p>
+                        <p style="margin: 0; overflow: hidden; max-width: 200px; text-overflow: ellipsis; white-space: nowrap;" id="url"></p>
+                    </div>
+                    <button id="trash-icon">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </li>
+            </template>
+            
+            <div id="add-section">
+                <div class="input-group" style="margin: 25px 20px; width: 300px; text-align: left;">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">go/</span>
+                    </div>
+                    <input class="form-control" id="go-link" placeholder="shortcut"></input>
+                </div>
+                
+                <div style="margin: 15px 20px; width: 300px; text-align: left;"> 
+                    <input class="form-control" id="full-link" placeholder="https://www.shortcut.com/"></input>                
+                </div>
+        
+                <button type="button" class="btn btn-sm button-outline" style="width: 100px; margin-bottom: 15px;" id="save">Save</button>
+            </div>
         </div>
         
-        <div style="margin: 15px 20px; width: 300px; text-align: left;"> 
-            <input class="form-control" id="full-link" placeholder="https://www.shortcut.com/"></input>                
+        <div id="options">
+            
         </div>
-
-        <div style="margin-right: 20px; text-align: right;">
-            <label id="stored-url"
-                style="max-width: 250px; color: red; overflow:hidden; text-overflow: ellipsis; white-space: nowrap; display: none">
-            </label>
-        </div>
-
-        <button type="button" class="btn btn-sm button-outline" style="width: 100px; margin-bottom: 15px;" id="save">Save</button>
     </body>
 </html>

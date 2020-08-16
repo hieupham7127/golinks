@@ -1,3 +1,8 @@
+body {
+    width: 340px;
+    height: 500px;
+}
+
 /* Save button */
 .button-outline {
     border: solid 1px #3bad74;
@@ -9,15 +14,23 @@
 }
 /* Setting button */
 .setting-btn {
-    margin-top: 5px;
+    /* margin-top: 5px; */
     font-size: 20px;
     vertical-align: bottom;
     float:right;
     color: lightgray;
     cursor: pointer;
+    background-color: white;
+    border: none;
 }
 .setting-btn:hover {
     color: grey;
+}
+.setting-btn:focus {
+    outline: none;
+}
+#home-btn {
+    display: none;
 }
 /* Input field without highlight*/
 .form-control:focus {
@@ -35,24 +48,6 @@
     border: none !important;
     border-bottom: solid 1px #3bad74 !important;
 }
-/* Search autocomplete */
-.ui-menu {
-    text-align: left;
-    width: 200px;
-}
-
-.ui-menu-item .ui-menu-item-wrapper.ui-state-active {
-    background: #d8eee3d7 !important;
-    color: #000000 !important;
-    border: #d8eee3d7;
-}
-
-.ui-autocomplete {
-    max-height: 200px;
-    overflow-y: auto;
-    /* prevent horizontal scrollbar */
-    overflow-x: hidden;
-}
 
 #icon {
     display: block;
@@ -67,7 +62,59 @@
     width: 45px;
 }
 
+.plus-icon {
+    display: block;
+    height: 25px !important;
+    width: 25px !important;
+    margin-top: 14px;
+    margin-left: 3px;
+}
+
 #url {
     color: grey;
     font-size: small;
+}
+
+/* Options section */
+#options {
+    display: none;
+}
+
+#item-list {
+    max-height: 200px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+}
+
+.list-group {
+    border-radius: 0;
+}
+
+.list-group-item-action:hover {
+    background-color: #d8eee3d7 !important;
+}
+
+#add-section {
+    display: block;
+}
+
+#add {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#trash-icon {
+    display: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 15px;
+    font-size: small;
+    color: gray;
+    background: none;
+    border: none;
+}
+
+#trash-icon:hover {
+    color: rgb(75, 74, 74);
 }
