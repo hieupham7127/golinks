@@ -1,17 +1,7 @@
 body {
     width: 340px;
-    height: 500px;
 }
 
-/* Save button */
-.button-outline {
-    border: solid 1px #3bad74;
-    color: #6eb38a;
-}
-.button-outline:hover {
-    background-color: #3bad74;
-    color: white;
-}
 /* Setting button */
 .setting-btn {
     /* margin-top: 5px; */
@@ -38,6 +28,16 @@ body {
     outline: 0px !important;
     border: solid 1px #3bad74;
 }
+
+.plus-icon {
+    display: block;
+    height: 20px !important;
+    width: 20px !important;
+    margin-top: 14px;
+    margin-left: 3px;
+    color: gray;
+}
+
 /* Search bar */
 .search-box {
     border: none;
@@ -62,22 +62,10 @@ body {
     width: 45px;
 }
 
-.plus-icon {
-    display: block;
-    height: 25px !important;
-    width: 25px !important;
-    margin-top: 14px;
-    margin-left: 3px;
-}
-
+/* Search entries */
 #url {
     color: grey;
     font-size: small;
-}
-
-/* Options section */
-#options {
-    display: none;
 }
 
 #item-list {
@@ -95,15 +83,6 @@ body {
     background-color: #d8eee3d7 !important;
 }
 
-#add-section {
-    display: block;
-}
-
-#add {
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
 #trash-icon {
     display: none;
     padding: 0;
@@ -117,4 +96,49 @@ body {
 
 #trash-icon:hover {
     color: rgb(75, 74, 74);
+}
+
+/* Add section */
+#add-section {
+    display: none;
+    border-top: solid 1px lightgray;
+    border-bottom: solid 1px lightgray;
+}
+
+#add {
+    padding-top: 0;
+    padding-bottom: 0;
+    cursor: pointer;
+}
+
+#minus-button {
+    border: none;
+    background: none;
+    align-self: left;
+    margin-top: 5px;
+    color: gray;
+    font-size: 20px;
+}
+
+#minus-button:focus {
+    outline: none;
+}
+
+#minus-button:hover {
+    color: rgb(94, 92, 92);
+}
+
+/* Save button */
+.button-outline {
+    border: solid 1px #3bad74;
+    color: #6eb38a;
+}
+.button-outline:hover {
+    background-color: #3bad74;
+    color: white;
+}
+
+/* Help section */
+#help {
+    display: none;
 }

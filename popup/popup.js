@@ -1,14 +1,14 @@
 const golinkInput = document.getElementById("go-link")
 const urlInput = document.getElementById("full-link")
-const storedUrl = document.getElementById("stored-url")
 const saveButton = document.getElementById("save")
 const searchQuery = document.getElementById("search")
 const mainDiv = document.getElementById("main")
-const optionsDiv = document.getElementById("options")
-const optionButton = document.getElementById("option-btn")
+const helpDiv = document.getElementById("help")
+const helpButton = document.getElementById("help-btn")
 const homeButton = document.getElementById("home-btn")
 const itemList = document.getElementById("item-list")
-const addSection = document.getElementById("addSection");
+const addSection = document.getElementById("add-section");
+const addEntry = document.getElementById("add");
 
 golinkInput.oninput = async () => {
     const golink = golinkInput.value
@@ -19,9 +19,6 @@ golinkInput.oninput = async () => {
         return;
     }
     saveButton.textContent = "Overwrite";
-    storedUrl.textContent = urlObj[golink].url;
-    storedUrl.title = urlObj[golink].url;
-    storedUrl.style.display = "";
 };
 
 saveButton.onclick = () => {
@@ -45,17 +42,17 @@ saveButton.onclick = () => {
 browser.tabs.query({'active': true, 'lastFocusedWindow': true, 'currentWindow': true})
     .then(tabs => urlInput.value = tabs[0].url);
 
-optionButton.addEventListener("click", function() {
+helpButton.addEventListener("click", function() {
     mainDiv.style.display = "none";
-    optionsDiv.style.display = "block";
-    optionButton.style.display = "none";
+    helpDiv.style.display = "block";
+    helpButton.style.display = "none";
     homeButton.style.display = "block";
 });
 
 homeButton.addEventListener("click", function() {
     mainDiv.style.display = "block";
-    optionsDiv.style.display = "none";
-    optionButton.style.display = "block";
+    helpDiv.style.display = "none";
+    helpButton.style.display = "block";
     homeButton.style.display = "none";
 });
 
@@ -123,4 +120,10 @@ $(document).ready(function(){
 
 $("#add").on("click", function() {
     addSection.style.display = "block";
+    this.style.display ="none";
 });
+
+$("#minus-button").on("click", function() {
+    addEntry.style.display = "flex";
+    addSection.style.display = "none";
+})
