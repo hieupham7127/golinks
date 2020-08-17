@@ -99,7 +99,7 @@ body {
 }
 
 /* Add section */
-#add-section {
+#section-expand {
     display: none;
     border-top: solid 1px lightgray;
     border-bottom: solid 1px lightgray;

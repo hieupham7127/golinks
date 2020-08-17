@@ -2,13 +2,14 @@ const golinkInput = document.getElementById("go-link")
 const urlInput = document.getElementById("full-link")
 const saveButton = document.getElementById("save")
 const searchQuery = document.getElementById("search")
-const mainDiv = document.getElementById("main-section")
-const helpDiv = document.getElementById("help-section")
-const helpButton = document.getElementById("btn-help")
-const homeButton = document.getElementById("btn-home")
+const mainSection = document.getElementById("section-main")
+const helpSection = document.getElementById("section-help")
+const helpBtn = document.getElementById("btn-help")
+const homeBtn = document.getElementById("btn-home")
 const itemList = document.getElementById("item-list")
-const addSection = document.getElementById("add-section");
+const expandSection = document.getElementById("section-expand");
 const expandBtn = document.getElementById("btn-expand");
+const collapseBtn = document.getElementById("btn-collapse");
 
 golinkInput.oninput = async () => {
     const golink = golinkInput.value
@@ -42,18 +43,18 @@ saveButton.onclick = () => {
 browser.tabs.query({'active': true, 'lastFocusedWindow': true, 'currentWindow': true})
     .then(tabs => urlInput.value = tabs[0].url);
 
-helpButton.addEventListener("click", function() {
-    mainDiv.style.display = "none";
-    helpDiv.style.display = "block";
-    helpButton.style.display = "none";
-    homeButton.style.display = "block";
+helpBtn.addEventListener("click", function() {
+    mainSection.style.display = "none";
+    helpSection.style.display = "block";
+    helpBtn.style.display = "none";
+    homeBtn.style.display = "block";
 });
 
-homeButton.addEventListener("click", function() {
-    mainDiv.style.display = "block";
-    helpDiv.style.display = "none";
-    helpButton.style.display = "block";
-    homeButton.style.display = "none";
+homeBtn.addEventListener("click", function() {
+    mainSection.style.display = "block";
+    helpSection.style.display = "none";
+    helpBtn.style.display = "block";
+    homeBtn.style.display = "none";
 });
 
 async function getAllEntries() {
@@ -119,11 +120,11 @@ $(document).ready(function(){
 });
 
 $(expandBtn).on("click", function() {
-    addSection.style.display = "block";
+    expandSection.style.display = "block";
     this.style.display ="none";
 });
 
-$("#btn-collapse").on("click", function() {
+$(collapseBtn).on("click", function() {
     expandBtn.style.display = "flex";
-    addSection.style.display = "none";
+    expandSection.style.display = "none";
 })
