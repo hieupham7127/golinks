@@ -92,6 +92,7 @@ body {
     color: gray;
     background: none;
     border: none;
+    outline: none;
 }
 
 #trash-icon:hover {
