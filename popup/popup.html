@@ -8,12 +8,10 @@
 
         <link href="/../dist/all.min.css" rel="stylesheet">
         <link rel="stylesheet" href="../dist/bootstrap.min.css">
-        <link rel="stylesheet" href="../dist/jquery-ui.min.css">
         <link rel="stylesheet" href="popup.css"></link>
 
         <script defer src="/../dist/all.min.js"></script>
         <script src="../dist/jquery.js"></script>
-        <script src="../dist/jquery-ui.min.js"></script>
         <script src="../dist/bootstrap.min.js"></script>
         <script type="module" src="../dist/browser-polyfill.js"></script>
         <script type="module" src="popup.js"></script>
@@ -22,24 +20,24 @@
         <div  style="padding: 15px; padding-bottom: 0;">
             <img width="25" height="25" src="../icons/32.png">
             <span style="font-size: 1em; font-weight: bold;">Go Links</span>
-            <button id="help-btn" class="setting-btn">
+            <button id="btn-help" class="btn-setting">
                 <i class="far fa-question-circle"></i>
             </button>
-            <button id="home-btn" class="setting-btn">
+            <button id="btn-home" class="btn-setting">
                 <i class="fas fa-home"></i>
             </button>
         </div>
 
         <hr/>
 
-        <div id="main">
+        <div id="main-section">
 
             <div class="form-inline d-flex justify-content-center" style="margin: 15px 20px; width: 300px; text-align: left;">
                 <i class="fas fa-search" style="color: #3bad74" aria-hidden="true"></i>
                 <input id="search" type="text" autocomplete="off" class="form-control search-box ml-3" style="width: 85%; padding-left: 0" placeholder="Search"></input>
             </div>
 
-            <li id="add" class="list-group-item list-group-item-action" style="display: flex">
+            <li id="btn-expand" class="list-group-item list-group-item-action" style="display: flex">
                 <div class="icon-wrapper">
                     <i class="fas fa-angle-down plus-icon"></i>
                 </div>
@@ -50,7 +48,7 @@
 
             <div id="add-section">
                 <div align="left">
-                    <button id="minus-button">
+                    <button id="btn-collapse">
                         <i class="fas fa-angle-up" style="text-align: left; margin-left: 20px"></i>
                     </button>
                 </div>
@@ -77,20 +75,20 @@
             <template id="autocomplete">
                 <li class="list-group-item list-group-item-action" style="display: flex">
                     <div class="icon-wrapper">
-                        <img id="icon">
+                        <img id="icon-website">
                     </div>
                     <div align="left" style=" margin-left: 5px; width: 80%">
-                        <p style="margin: 0;" id="shortcut"></p>
-                        <p style="margin: 0; overflow: hidden; max-width: 200px; text-overflow: ellipsis; white-space: nowrap;" id="url"></p>
+                        <p style="margin: 0;" id="url-shortcut"></p>
+                        <p style="margin: 0; overflow: hidden; max-width: 200px; text-overflow: ellipsis; white-space: nowrap;" id="url-website"></p>
                     </div>
-                    <button id="trash-icon">
+                    <button id="icon-trash">
                         <i class="fas fa-trash-alt"></i>
                     </button>
                 </li>
             </template>
         </div>
 
-        <div id="help">
+        <div id="help-section">
 
         </div>
     </body>

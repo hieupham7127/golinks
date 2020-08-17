@@ -3,8 +3,7 @@ body {
 }
 
 /* Setting button */
-.setting-btn {
-    /* margin-top: 5px; */
+.btn-setting {
     font-size: 20px;
     vertical-align: bottom;
     float:right;
@@ -13,13 +12,13 @@ body {
     background-color: white;
     border: none;
 }
-.setting-btn:hover {
+.btn-setting:hover {
     color: grey;
 }
-.setting-btn:focus {
+.btn-setting:focus {
     outline: none;
 }
-#home-btn {
+#btn-home {
     display: none;
 }
 /* Input field without highlight*/
@@ -49,7 +48,7 @@ body {
     border-bottom: solid 1px #3bad74 !important;
 }
 
-#icon {
+#icon-website {
     display: block;
     height: 32px;
     width: 32px;
@@ -63,7 +62,7 @@ body {
 }
 
 /* Search entries */
-#url {
+#url-website {
     color: grey;
     font-size: small;
 }
@@ -83,7 +82,7 @@ body {
     background-color: #d8eee3d7 !important;
 }
 
-#trash-icon {
+#icon-trash {
     display: none;
     padding: 0;
     margin: 0;
@@ -95,7 +94,7 @@ body {
     outline: none;
 }
 
-#trash-icon:hover {
+#icon-trash:hover {
     color: rgb(75, 74, 74);
 }
 
@@ -106,13 +105,13 @@ body {
     border-bottom: solid 1px lightgray;
 }
 
-#add {
+#btn-expand {
     padding-top: 0;
     padding-bottom: 0;
     cursor: pointer;
 }
 
-#minus-button {
+#btn-collapse {
     border: none;
     background: none;
     align-self: left;
@@ -121,11 +120,11 @@ body {
     font-size: 20px;
 }
 
-#minus-button:focus {
+#btn-collapse:focus {
     outline: none;
 }
 
-#minus-button:hover {
+#btn-collapse:hover {
     color: rgb(94, 92, 92);
 }
 
@@ -140,6 +139,6 @@ body {
 }
 
 /* Help section */
-#help {
+#help-section {
     display: none;
 }

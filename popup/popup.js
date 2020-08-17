@@ -2,13 +2,13 @@ const golinkInput = document.getElementById("go-link")
 const urlInput = document.getElementById("full-link")
 const saveButton = document.getElementById("save")
 const searchQuery = document.getElementById("search")
-const mainDiv = document.getElementById("main")
-const helpDiv = document.getElementById("help")
-const helpButton = document.getElementById("help-btn")
-const homeButton = document.getElementById("home-btn")
+const mainDiv = document.getElementById("main-section")
+const helpDiv = document.getElementById("help-section")
+const helpButton = document.getElementById("btn-help")
+const homeButton = document.getElementById("btn-home")
 const itemList = document.getElementById("item-list")
 const addSection = document.getElementById("add-section");
-const addEntry = document.getElementById("add");
+const expandBtn = document.getElementById("btn-expand");
 
 golinkInput.oninput = async () => {
     const golink = golinkInput.value
@@ -79,10 +79,10 @@ function createEntry(entry) {
     const baseURL = "https://www.google.com/s2/favicons?sz=64&domain_url=";
     let searchEntry = template.content.cloneNode(true);
     const url = entry[1].url;
-    const trashIcon = searchEntry.querySelector("#trash-icon");
-    searchEntry.querySelector("#shortcut").textContent = entry[0];
-    searchEntry.querySelector("#url").textContent = url;
-    searchEntry.querySelector("#icon").src = baseURL + url;
+    const trashIcon = searchEntry.querySelector("#icon-trash");
+    searchEntry.querySelector("#url-shortcut").textContent = entry[0];
+    searchEntry.querySelector("#url-website").textContent = url;
+    searchEntry.querySelector("#icon-website").src = baseURL + url;
     searchEntry.querySelector("li").addEventListener("click", function() {
         browser.tabs.create({active: true, url: url});
     });
@@ -118,12 +118,12 @@ $(document).ready(function(){
     });
 });
 
-$("#add").on("click", function() {
+$(expandBtn).on("click", function() {
     addSection.style.display = "block";
     this.style.display ="none";
 });
 
-$("#minus-button").on("click", function() {
-    addEntry.style.display = "flex";
+$("#btn-collapse").on("click", function() {
+    expandBtn.style.display = "flex";
     addSection.style.display = "none";
 })
