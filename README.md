@@ -1,5 +1,5 @@
 # Go Links
-A browser extension for creating your personal URL shortcut. Available on Chrome and Firefox.
+A browser extension for creating personal URL shortcuts. Available on Chrome and Firefox.
 
 ## Installation
 
@@ -20,7 +20,7 @@ https://addons.mozilla.org/en-US/firefox/addon/go-links/
 4. Fill in your shortcut.
 5. Click "Save" button.
 
-![Add shortcut](https://media.giphy.com/media/Rgo24Wn6UuEHbkUTrE/giphy.gif)
+![Add shortcut](demo/add_shortcut.gif)
 
 
 ### Access the website
@@ -29,7 +29,7 @@ https://addons.mozilla.org/en-US/firefox/addon/go-links/
 1. In the current tab or in a new tab, type "go/your-shortcut".
 2. It will redirect you to the website you saved.
 
-![Access via shortcut](https://media.giphy.com/media/U8T3ypJQwLqeNKTZ7v/giphy.gif)
+![Access via shortcut](demo/via_shortcut.gif)
 
 
 #### With the extension popup
@@ -37,13 +37,13 @@ https://addons.mozilla.org/en-US/firefox/addon/go-links/
 2. Click on the shortcut entry.
 3. The website will be opened in a new tab.
 
-![Access via popup](https://media.giphy.com/media/TIdumHJ3zvibj3toxg/giphy.gif)
+![Access via popup](demo/via_popup.gif)
 
 ### Search for a shortcut
 1. Open Go Links.
 2. Search for your shortcut using the search box.
 
-![Search example](https://media.giphy.com/media/H6JTsWZSHxCnWTHyHt/giphy.gif)
+![Search example](demo/search.gif)
 
 ### Delete a shortcut
 1. Open Go Links.
@@ -51,7 +51,7 @@ https://addons.mozilla.org/en-US/firefox/addon/go-links/
 3. Click on the trash icon.
 4. Confirm your selection.
 
-![Delete shortcut](https://media.giphy.com/media/lQauDzTEU0xLTLYgOB/giphy.gif)
+![Delete shortcut](demo/delete_shortcut.gif)
 
 ### Overwrite a shortcut
 1. Go to the new website for which you want to use the shortcut.
@@ -60,4 +60,4 @@ https://addons.mozilla.org/en-US/firefox/addon/go-links/
 4. Type in the shortcut you want to overwrite.
 5. Click "Overwrite" button. The existed shortcut will be mapped to the new website.
 
-![Delete shortcut](https://media.giphy.com/media/chykqd7FJSAUHnoELH/giphy.gif)
+![Delete shortcut](demo/overwrite.gif)
