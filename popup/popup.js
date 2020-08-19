@@ -5,7 +5,6 @@ const searchQuery = document.getElementById("search")
 const mainSection = document.getElementById("section-main")
 const helpSection = document.getElementById("section-help")
 const helpBtn = document.getElementById("btn-help")
-const homeBtn = document.getElementById("btn-home")
 const itemList = document.getElementById("item-list")
 const expandSection = document.getElementById("section-expand");
 const expandBtn = document.getElementById("btn-expand");
@@ -16,7 +15,6 @@ golinkInput.oninput = async () => {
     let urlObj = await browser.storage.sync.get(golink)
     if (!urlObj[golink]) {
         saveButton.textContent = "Save";
-        storedUrl.style.display = "none";
         return;
     }
     saveButton.textContent = "Overwrite";
@@ -44,17 +42,7 @@ browser.tabs.query({'active': true, 'lastFocusedWindow': true, 'currentWindow': 
     .then(tabs => urlInput.value = tabs[0].url);
 
 helpBtn.addEventListener("click", function() {
-    mainSection.style.display = "none";
-    helpSection.style.display = "block";
-    helpBtn.style.display = "none";
-    homeBtn.style.display = "block";
-});
-
-homeBtn.addEventListener("click", function() {
-    mainSection.style.display = "block";
-    helpSection.style.display = "none";
-    helpBtn.style.display = "block";
-    homeBtn.style.display = "none";
+    browser.tabs.create({active: true, url: "https://github.com/hieupham7127/golinks/tree/user-guide#how-to-use"});
 });
 
 async function getAllEntries() {
