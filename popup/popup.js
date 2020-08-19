@@ -42,7 +42,7 @@ browser.tabs.query({'active': true, 'lastFocusedWindow': true, 'currentWindow': 
     .then(tabs => urlInput.value = tabs[0].url);
 
 helpBtn.addEventListener("click", function() {
-    browser.tabs.create({active: true, url: "https://github.com/hieupham7127/golinks/tree/user-guide#how-to-use"});
+    browser.tabs.create({active: true, url: "https://github.com/hieupham7127/golinks#user-guide-to-go-links"});
 });
 
 async function getAllEntries() {

@@ -48,7 +48,9 @@ You will then be able to access the same url using that shortcut. See `How to ac
     <summary>How to search for a golink?</summary>
 
 1. Open Go Links.
-2. Search for your shortcut using the search box.
+2. Click on the search box.
+3. Type in your search query.
+4. Your search results will be filtered in ascending order.
 
 ![Search example](demo/search.gif)
 </details>
