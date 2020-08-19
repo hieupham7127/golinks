@@ -13,6 +13,9 @@ https://addons.mozilla.org/en-US/firefox/addon/go-links/
 
 ## How to use
 
+<details>
+    <summary>Create a new URL shortcut</summary>
+
 ### Create a new URL shortcut
 1. Go to the website you want to create the shortcut for.
 2. Open Go Links.
@@ -21,10 +24,12 @@ https://addons.mozilla.org/en-US/firefox/addon/go-links/
 5. Click "Save" button.
 
 ![Add shortcut](demo/add_shortcut.gif)
+</details>
 
+<details>
+    <summary>Access the website</summary>
 
 ### Access the website
-
 #### With the shortcut
 1. In the current tab or in a new tab, type "go/your-shortcut".
 2. It will redirect you to the website you saved.
@@ -38,12 +43,20 @@ https://addons.mozilla.org/en-US/firefox/addon/go-links/
 3. The website will be opened in a new tab.
 
 ![Access via popup](demo/via_popup.gif)
+</details>
+
+<details>
+    <summary>Search for a shortcut</summary>
 
 ### Search for a shortcut
 1. Open Go Links.
 2. Search for your shortcut using the search box.
 
 ![Search example](demo/search.gif)
+</details>
+
+<details>
+    <summary>Delete a shortcut</summary>
 
 ### Delete a shortcut
 1. Open Go Links.
@@ -53,6 +66,11 @@ https://addons.mozilla.org/en-US/firefox/addon/go-links/
 
 ![Delete shortcut](demo/delete_shortcut.gif)
 
+</details>
+
+<details>
+    <summary>Overwrite a shortcut</summary>
+
 ### Overwrite a shortcut
 1. Go to the new website for which you want to use the shortcut.
 2. Open Go Links.
@@ -61,3 +79,4 @@ https://addons.mozilla.org/en-US/firefox/addon/go-links/
 5. Click "Overwrite" button. The existed shortcut will be mapped to the new website.
 
 ![Delete shortcut](demo/overwrite.gif)
+</details>
