@@ -11,33 +11,32 @@ https://chrome.google.com/webstore/detail/go-links/gojgbkejhelijlkgpmlbbkklljgmf
 
 https://addons.mozilla.org/en-US/firefox/addon/go-links/
 
-## How to use
+## User Guide to Go Links
 
 <details>
-    <summary>Create a new URL shortcut</summary>
+    <summary>How to create a golink?</summary>
 
-### Create a new URL shortcut
 1. Go to the website you want to create the shortcut for.
 2. Open Go Links.
-3. Click "Add new shortcut"
-4. Fill in your shortcut.
+3. Expand "Add new shortcut"
+4. Fill in a name for your shortcut.
 5. Click "Save" button.
+
+You will then be able to access the same url using that shortcut. See `How to access a website`for instructions.
 
 ![Add shortcut](demo/add_shortcut.gif)
 </details>
 
 <details>
-    <summary>Access the website</summary>
+    <summary>How to access a website?</summary>
 
-### Access the website
-#### With the shortcut
-1. In the current tab or in a new tab, type "go/your-shortcut".
-2. It will redirect you to the website you saved.
+#### Access via shortcut
+1. Type `go/<your-shortcut>` in current tab or in a new tab.
+2. You will be redirected to the website linked to that shortcut.
 
 ![Access via shortcut](demo/via_shortcut.gif)
 
-
-#### With the extension popup
+#### Access via extension popup
 1. Open Go Links.
 2. Click on the shortcut entry.
 3. The website will be opened in a new tab.
@@ -46,9 +45,8 @@ https://addons.mozilla.org/en-US/firefox/addon/go-links/
 </details>
 
 <details>
-    <summary>Search for a shortcut</summary>
+    <summary>How to search for a golink?</summary>
 
-### Search for a shortcut
 1. Open Go Links.
 2. Search for your shortcut using the search box.
 
@@ -56,11 +54,10 @@ https://addons.mozilla.org/en-US/firefox/addon/go-links/
 </details>
 
 <details>
-    <summary>Delete a shortcut</summary>
+    <summary>How to delete a golink?</summary>
 
-### Delete a shortcut
 1. Open Go Links.
-2. Hover your mouse on the shortcut entry you want to delete.
+2. Move your mouse on the entry that you want to delete. The trash icon will appear on hover.
 3. Click on the trash icon.
 4. Confirm your selection.
 
@@ -69,14 +66,13 @@ https://addons.mozilla.org/en-US/firefox/addon/go-links/
 </details>
 
 <details>
-    <summary>Overwrite a shortcut</summary>
+    <summary>How to overwrite a golink?</summary>
 
-### Overwrite a shortcut
 1. Go to the new website for which you want to use the shortcut.
 2. Open Go Links.
-3. Click "Add new shortcut".
+3. Expand "Add new shortcut".
 4. Type in the shortcut you want to overwrite.
-5. Click "Overwrite" button. The existed shortcut will be mapped to the new website.
+5. Click "Overwrite" button.
 
 ![Delete shortcut](demo/overwrite.gif)
 </details>
