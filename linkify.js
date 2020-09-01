@@ -15,11 +15,17 @@ function redirectGoLink(details) {
     return {redirectUrl: local_storage_cache[golink].url}
 }
 
+/**
+ * Extract the go link from the search link and redirect to the user's stored website if exists.
+ */
 function redirectSearchLink(details) {
     let golink = details.url.replace(/(.*)\:\/\/(.*)=go%2F/, "")
-    const regex = /%2F/g;
-    golink =  golink.replace(regex, "/");
+    golink = golink.replace(/%2F/, "/");
+
+    // Remove trailing query string content of the search link
+    // Yahoo: &fr=opensearch, Ecosia: &addon=opensearch
     golink = golink.replace(/\&fr=opensearch|\&addon=opensearch/, "")
+
     if (!local_storage_cache[golink]) {
         return;
     }
