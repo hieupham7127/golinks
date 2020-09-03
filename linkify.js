@@ -20,7 +20,8 @@ function redirectGoLink(details) {
  */
 function redirectSearchLink(details) {
     let golink = details.url.replace(/(.*)\:\/\/(.*)=go%2F/, "")
-    golink = golink.replace(/%2F/, "/");
+    // Global flag g is included to replace all "%2F" with "/"
+    golink = golink.replace(/%2F/g, "/");
 
     // Remove trailing query string content of the search link
     // Yahoo: &fr=opensearch, Ecosia: &addon=opensearch
@@ -42,6 +43,6 @@ browser.webRequest.onBeforeRequest.addListener(
 
 browser.webRequest.onBeforeRequest.addListener(
     redirectSearchLink,
-    { "urls": ["*://*/*=go%2F*"] },
+    { "urls": ["*://*.google.com/*=go%2F*", "*://*.yahoo.com/*=go%2F*", "*://*.bing.com/*=go%2F*", "*://*.duckduckgo.com/*=go%2F*", "*://*.ecosia.org/*=go%2F*", "*://*.baidu.com/*=go%2F*"] },
     ["blocking"],
 );
