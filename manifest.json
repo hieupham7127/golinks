@@ -11,15 +11,15 @@
     },
 
     "icons": {
-        "128": "icons/128.png"
+        "128": "icons/128x128.png"
     },
 
     "browser_action": {
         "default_title": "Go Links",
         "default_popup": "popup/popup.html",
         "default_icon": {
-            "16": "icons/16.png",
-            "32": "icons/32.png"
+            "16": "icons/16x16.png",
+            "48": "icons/48x48.png"
         }
     },
 
