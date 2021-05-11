@@ -4,8 +4,7 @@ body {
 
 /* Setting button */
 .btn-setting {
-    font-size: 20px;
-    vertical-align: bottom;
+    font-size: 15px;
     float:right;
     color: lightgray;
     cursor: pointer;
@@ -136,4 +135,13 @@ body {
 .button-outline:hover {
     background-color: #3bad74;
     color: white;
+}
+
+/* Button upload */
+input[type="file"] {
+    display: none;
+}
+
+.btn-upload {
+    padding: 1px 6px;
 }
