@@ -128,19 +128,19 @@ downloadButton.onclick = function() {
             entries.forEach(entry => {
                 data[entry[0]] = entry[1].url;
             });
-            save(data);
+            exportGoLinks(data);
         })
     } catch (e) {
         alert("Failed! Error: " + e.toString());
     }
 };
 
-function save(data) {
+function exportGoLinks(data) {
     const a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], {
-      type: "text/plain"
+      type: "application/JSON"
     }));
-    a.setAttribute("download", "golinks.txt");
+    a.setAttribute("download", "golinks.json");
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
