@@ -9,6 +9,8 @@ const itemList = document.getElementById("item-list")
 const expandSection = document.getElementById("section-expand");
 const expandBtn = document.getElementById("btn-expand");
 const collapseBtn = document.getElementById("btn-collapse");
+const fileInput = document.getElementById("btn-upload");
+const downloadButton = document.getElementById("btn-download");
 
 golinkInput.oninput = async () => {
     const golink = golinkInput.value
@@ -116,3 +118,57 @@ $(collapseBtn).on("click", function() {
     expandBtn.style.display = "flex";
     expandSection.style.display = "none";
 })
+
+downloadButton.onclick = function() {
+    const data = {};
+    try {
+        browser.storage.sync.get(null)
+        .then(items => {
+            const entries = Object.entries(items);
+            entries.forEach(entry => {
+                data[entry[0]] = entry[1].url;
+            });
+            exportGoLinks(data);
+        })
+    } catch (e) {
+        alert("Failed! Error: " + e.toString());
+    }
+};
+
+function exportGoLinks(data) {
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], {
+      type: "application/JSON"
+    }));
+    a.setAttribute("download", "golinks.json");
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
+fileInput.onchange = () => {
+    const files = fileInput.files;
+    if (files.length > 0) {
+        const curFile = files.item(0);
+        curFile.text().then(async text => {
+            const data = JSON.parse(text);
+            var golink;
+            for (golink in data) {
+                let urlObj = await browser.storage.sync.get(golink);
+                // Save new golinks or overwrite existing golinks
+                if (!urlObj[golink] || (urlObj[golink].url != data[golink])) {
+                    let newUrlObj = {}
+                    newUrlObj[golink] = {
+                        "url": data[golink],
+                        "rules": "Nothing for now"
+                    };
+                    try {
+                        browser.storage.sync.set(newUrlObj)
+                    } catch (e) {
+                        alert("Failed! Error: " + e.toString());
+                    }
+                }
+            }
+        });
+    }
+}
