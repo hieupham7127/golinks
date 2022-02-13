@@ -7,7 +7,7 @@ A browser extension for creating personal URL shortcuts. Available on Chrome and
 
 https://chrome.google.com/webstore/detail/go-links/gojgbkejhelijlkgpmlbbkklljgmfljj?h1=en
 
-### Firefox
+### Firefox (Unsupported)
 
 https://addons.mozilla.org/en-US/firefox/addon/go-links/
 
