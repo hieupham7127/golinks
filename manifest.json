@@ -14,7 +14,7 @@
         "128": "icons/128x128.png"
     },
 
-    "browser_action": {
+    "action": {
         "default_title": "Go Links",
         "default_popup": "popup/popup.html",
         "default_icon": {
@@ -28,7 +28,7 @@
         "tabs",
         "unlimitedStorage",
         "webRequest",
-        "webRequestBlocking"
+        "declarativeNetRequest"
     ],
 
     "host_permissions": [
