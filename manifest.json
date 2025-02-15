@@ -6,8 +6,7 @@
     "description": "Fast accessing your websites with a personal URL shortener",
 
     "background": {
-        "page": "linkify.html",
-        "persistent": true
+        "service_worker": "linkify.js"
     },
 
     "icons": {

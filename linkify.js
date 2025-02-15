@@ -1,47 +1,64 @@
+// Compatibility layer for browser and chrome namespaces
+const currentBrowswer = (typeof browser !== 'undefined') ? browser : chrome;
+
 let local_storage_cache = getLocalStorageData();
 
+// Activate event
+self.addEventListener('activate', async () => {
+    console.log('Service Worker activating.');
+    // Perform activate steps
+    await updateRules();
+});
+
 async function getLocalStorageData() {
-    await browser.storage.sync.get(null)
+    await currentBrowswer.storage.sync.get(null)
         .then(urlObjs => {
             local_storage_cache = urlObjs;
         });
 }
 
+/**
+ * Generate redirection rules for go links.
+ */
 async function getNewRules() {
-    let id = 1
-    let rules = []
-    local_storage_cache.forEach(([key, value]) => {
+    let id = 1;
+    let rules = [];
+    Object.keys(local_storage_cache).forEach(key => {
+        // Redirection rule for go/link --> target URL
         let rule = {
             "id": id,
             "priority": 1,
             "action": {
                 "type": "redirect",
                 "redirect": {
-                    "url": value.url
+                    "url": local_storage_cache[key].url
                 }
             },
             "condition": {
-                "regexFilter": `(.*)\:\/\/go\/${key}`,
+                "regexFilter": `(.*)\:\/\/go\/${key}$`,
                 "resourceTypes": ["main_frame"]
             }
         }
+        // Redirection rule for the case of being redirected to a search engine
         let rule_search = {
             "id": id + 1,
             "priority": 1,
             "action": {
                 "type": "redirect",
                 "redirect": {
-                    "url": value.url
+                    "url": local_storage_cache[key].url
                 }
             },
             "condition": {
-                "regexFilter": `(.*)\:\/\/(.*)=go%2F${key}`,
+                "regexFilter": `(.*)\:\/\/(.*)=go%2F${key}&`,
                 "resourceTypes": ["main_frame"]
             }
         }
-        rules.push(rule, rule_search)
+        rules.push(rule,rule_search);
         id += 2
     });
+    console.log(rules);
+    return rules;
 }
 
 async function updateRules() {
@@ -65,37 +82,7 @@ function redirectGoLink(details) {
     return {redirectUrl: local_storage_cache[golink].url}
 }
 
-/**
- * Extract the go link from the search link and redirect to the user's stored website if exists.
- */
-function redirectSearchLink(details) {
-    let golink = details.url.replace(/(.*)\:\/\/(.*)=go%2F/, "")
-    // Global flag g is included to replace all "%2F" with "/"
-    golink = golink.replace(/%2F/g, "/");
-
-    // Remove trailing query string content of the search link
-    // Yahoo: &fr=opensearch, Ecosia: &addon=opensearch
-    golink = golink.replace(/\&fr=opensearch|\&addon=opensearch/, "")
-
-    if (!local_storage_cache[golink]) {
-        return;
-    }
-    return {redirectUrl: local_storage_cache[golink].url}
-}
-
-browser.storage.onChanged.addListener(async () => {
+currentBrowswer.storage.onChanged.addListener(async () => {
     await getLocalStorageData()
     await updateRules()
 });
-
-// browser.webRequest.onBeforeRequest.addListener(
-//     redirectGoLink,
-//     { "urls": ["*://go/*"] },
-//     ["blocking"],
-// );
-
-// browser.webRequest.onBeforeRequest.addListener(
-//     redirectSearchLink,
-//     { "urls": ["*://*.google.com/*=go%2F*", "*://*.yahoo.com/*=go%2F*", "*://*.bing.com/*=go%2F*", "*://*.duckduckgo.com/*=go%2F*", "*://*.ecosia.org/*=go%2F*", "*://*.baidu.com/*=go%2F*"] },
-//     ["blocking"],
-// );

@@ -12,9 +12,11 @@ const collapseBtn = document.getElementById("btn-collapse");
 const fileInput = document.getElementById("btn-upload");
 const downloadButton = document.getElementById("btn-download");
 
+const currentBrowswer = (typeof browser !== 'undefined') ? browser : chrome;
+
 golinkInput.oninput = async () => {
     const golink = golinkInput.value
-    let urlObj = await browser.storage.sync.get(golink)
+    let urlObj = await currentBrowswer.storage.sync.get(golink)
     if (!urlObj[golink]) {
         saveButton.textContent = "Save";
         return;
@@ -30,7 +32,7 @@ saveButton.onclick = () => {
         "rules": "Nothing for now"
     };
     try {
-        browser.storage.sync.set(urlObj)
+        currentBrowswer.storage.sync.set(urlObj)
             .then(() => {
                 alert("Success!");
                 golinkInput.oninput()
@@ -40,16 +42,16 @@ saveButton.onclick = () => {
     }
 };
 
-browser.tabs.query({'active': true, 'lastFocusedWindow': true, 'currentWindow': true})
+currentBrowswer.tabs.query({'active': true, 'lastFocusedWindow': true, 'currentWindow': true})
     .then(tabs => urlInput.value = tabs[0].url);
 
 helpBtn.addEventListener("click", function() {
-    browser.tabs.create({active: true, url: "https://github.com/hieupham7127/golinks#user-guide-to-go-links"});
+    currentBrowswer.tabs.create({active: true, url: "https://github.com/hieupham7127/golinks#user-guide-to-go-links"});
 });
 
 async function getAllEntries() {
     try {
-        await browser.storage.sync.get(null)
+        await currentBrowswer.storage.sync.get(null)
         .then(items => {
             const entries = Object.entries(items);
             let allItems = {};
@@ -75,7 +77,7 @@ function createEntry(entry) {
     searchEntry.querySelector("#url-website").textContent = url;
     searchEntry.querySelector("#icon-website").src = baseURL + url;
     searchEntry.querySelector("li").addEventListener("click", function() {
-        browser.tabs.create({active: true, url: url});
+        currentBrowswer.tabs.create({active: true, url: url});
     });
     searchEntry.querySelector("li").addEventListener("mouseover", function() {
         trashIcon.style.display = "block";
@@ -86,7 +88,7 @@ function createEntry(entry) {
     trashIcon.addEventListener("click", function(event) {
         let response = confirm("Delete shortcut " + entry[0] + "?");
         if (response) {
-            browser.storage.sync.remove(entry[0]);
+            currentBrowswer.storage.sync.remove(entry[0]);
         }
         event.stopPropagation();
     });
@@ -95,7 +97,7 @@ function createEntry(entry) {
 
 $(document).ready(getAllEntries());
 
-browser.storage.onChanged.addListener(() => {
+currentBrowswer.storage.onChanged.addListener(() => {
     $(itemList).empty();
     getAllEntries()
 });
@@ -122,7 +124,7 @@ $(collapseBtn).on("click", function() {
 downloadButton.onclick = function() {
     const data = {};
     try {
-        browser.storage.sync.get(null)
+        currentBrowswer.storage.sync.get(null)
         .then(items => {
             const entries = Object.entries(items);
             entries.forEach(entry => {
@@ -154,7 +156,7 @@ fileInput.onchange = () => {
             const data = JSON.parse(text);
             var golink;
             for (golink in data) {
-                let urlObj = await browser.storage.sync.get(golink);
+                let urlObj = await currentBrowswer.storage.sync.get(golink);
                 // Save new golinks or overwrite existing golinks
                 if (!urlObj[golink] || (urlObj[golink].url != data[golink])) {
                     let newUrlObj = {}
@@ -163,7 +165,7 @@ fileInput.onchange = () => {
                         "rules": "Nothing for now"
                     };
                     try {
-                        browser.storage.sync.set(newUrlObj)
+                        currentBrowswer.storage.sync.set(newUrlObj)
                     } catch (e) {
                         alert("Failed! Error: " + e.toString());
                     }
