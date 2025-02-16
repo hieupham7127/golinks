@@ -1,20 +1,19 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "Go Links",
-    "version": "0.0.4",
+    "version": "0.0.5",
 
     "description": "Fast accessing your websites with a personal URL shortener",
 
     "background": {
-        "page": "linkify.html",
-        "persistent": true
+        "service_worker": "linkify.js"
     },
 
     "icons": {
         "128": "icons/128x128.png"
     },
 
-    "browser_action": {
+    "action": {
         "default_title": "Go Links",
         "default_popup": "popup/popup.html",
         "default_icon": {
@@ -24,11 +23,14 @@
     },
 
     "permissions": [
-        "<all_urls>",
         "storage",
         "tabs",
         "unlimitedStorage",
         "webRequest",
-        "webRequestBlocking"
+        "declarativeNetRequest"
+    ],
+
+    "host_permissions": [
+        "<all_urls>"
     ]
 }

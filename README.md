@@ -3,13 +3,9 @@ A browser extension for creating personal URL shortcuts. Available on Chrome and
 
 ## Installation
 
-### Chrome
+### Chrome / Brave
 
 https://chrome.google.com/webstore/detail/go-links/gojgbkejhelijlkgpmlbbkklljgmfljj?h1=en
-
-### Firefox (Unsupported)
-
-https://addons.mozilla.org/en-US/firefox/addon/go-links/
 
 ## User Guide to Go Links
 
